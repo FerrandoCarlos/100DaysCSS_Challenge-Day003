@@ -1,0 +1,182 @@
+/* delete the following line if no text is used */
+/* edit the line if you wanna use other fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+:root {
+  --translation: translateZ(150px);
+}
+/* use only the available space inside the 400x400 frame */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #272c34;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background: #7ddffc;
+  position: relative;
+  overflow: hidden;
+  animation: 3.5s circle-animation linear infinite;
+}
+.sun-container {
+  position: relative;
+  height: 80%;
+  width: 80%; 
+  transform: rotateZ(45deg);
+  animation: 3.5s sun-animation linear infinite;
+}
+.sun {
+  width: 20%;
+  height: 20%;
+  left: -85px;
+  border-radius: 50%;
+  background: #ffef00;
+}
+.pyramid {
+  position: absolute;
+  height: 30%;
+  width: 70%;
+  display: flex;
+}
+
+.front {
+  height: 100%;
+  width: 70%;
+  background: #f0f0f0;
+  clip-path: polygon(79% 0%, 15% 100%, 100% 100%);
+  z-index: 1;
+  position: absolute;
+  animation: 3.5s front-animation linear infinite;
+}
+
+.back {
+  position: absolute;
+  height: 100%;
+  width: 70%;
+  background: #c3c1c3;
+  clip-path: polygon(36% 0%, 15% 100%, 100% 100%);
+  left: 30%;
+  animation: 3.5s back-animation linear infinite;
+}
+.sand {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  background: #dece6f;
+  top: 64.9%;
+}
+
+.shadow {
+  height: 100%;
+  width: 150%;
+  background: rgba(0, 0, 0, 0.25);
+
+  clip-path: polygon(15% 0%, 65% 20%, 57% 0);
+
+  animation: 3.5s shadow-animation linear infinite;
+}
+
+/* ANIMACIONES */
+@keyframes circle-animation {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  86% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes sun-animation {
+  0% {
+    transform: rotateZ(-45deg);
+  }
+
+  100% {
+    transform: rotate(120deg);
+  }
+}
+
+@keyframes shadow-animation {
+  0% {
+    clip-path: polygon(15% 0%, 65% 20%, 57% 0%);
+  }
+  30% {
+    clip-path: polygon(15% 0%, 65% 40%, 57% 0%);
+  }
+  50% {
+    clip-path: polygon(15% 0%, 65% 40%, 57% 0%);
+  }
+  100% {
+    clip-path: polygon(15% 0%, 0% 60%, 57% 0%);
+  }
+}
+
+@keyframes front-animation {
+  0% {
+    background: #c3c1c3;
+  }
+  30% {
+    background: #dadada;
+  }
+  70% {
+    background: #dadada;
+  }
+  100% {
+    background: #919191;
+  }
+}
+
+@keyframes back-animation {
+  0% {
+    background: #919191;
+  }
+  30% {
+    background: #c3c1c3;
+  }
+  70% {
+    background: #c3c1c3;
+  }
+  100% {
+    background: #e0e0e0;
+  }
+}
